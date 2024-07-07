@@ -17,6 +17,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Set up API_KEY
+        run: echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+      - name: Set up ASSISTANT_ID
+        run: echo "ASSISTANT_ID=${{ secrets.ASSISTANT_ID }}" >> $GITHUB_ENV
+      - name: Set up VECTOR_ID
+        run: echo "VECTOR_ID=${{ secrets.VECTOR_ID }}" >> $GITHUB_ENV 
       - uses: streamlit/streamlit-app-action@v0.0.3
         with:
           app-path: main.py
