@@ -13,10 +13,10 @@ class FileModel:
     def upload_file(data, uploaded_file):
         file_extension = uploaded_file.name.split(".")[-1].lower()
         if file_extension in data.accepted_file_types:
-            file_batch = data.openai_client.beta.vector_stores.file_batches.upload_and_poll(
-                vector_store_id=data.vector_store_id,
-                files=[uploaded_file]
-            )
+            data.openai_client.beta.vector_stores.file_batches.upload_and_poll(
+            vector_store_id=data.vector_store_id,
+        files=[uploaded_file]
+    )
 
             data.openai_client.beta.assistants.update(
                 assistant_id=data.assistant_id,
